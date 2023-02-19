@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel, Tijera, Lagarto, Spock!</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="./js/mokepon.js"></script>
+</head>
+<body>
+        <h1 class="titulo">Piedra, Papel, Tijera, Lagarto, Spock! 🔥💧🌱</h1>
+    <section id="seleccionar-mascota">
+
+        <div class="diveleccion">
+
+    <h2 id="genio">ELIGE A TU GENIO:</h2>
+        
+    <label for="sheldon">Sheldon</label>
+    <input type="radio" name="mascota" id="sheldon">
+
+    <label for="leonard">Leonard</label>
+    <input type="radio" name="mascota" id="leonard">
+
+    <label for="howard">Howard</label>
+    <input type="radio" name="mascota" id="howard">
+
+<button id="boton-mascota">Seleccionar</button>
+
+</div>
+
+</section>
+    <section id="seleccionar-ataque">
+        
+        <h2>Elige tu ataque:</h2>
+
+
+
+        <p><span id="mascota-jugador"></span> tiene <span id="vidasJugadorHtml">5</span> vidas</p>
+        <p><span id="mascota-enemigo"></span> tiene <span id="vidasEnemigoHtml">5</span> vidas</p>
+
+
+        <p>
+            <button id="boton-piedra">Piedra </button>
+            <button id="boton-papel">Papel </button>
+            <button id="boton-tijera">Tijera </button>
+            <button id="boton-lagarto">Lagarto </button>
+            <button id="boton-spock">Spock </button>
+        </p>
+
+    </section>
+
+    <section id="mensajes">
+
+        <p>
+            
+        </p>
+
+    </section>
+
+    <section id="reiniciar">
+
+        <button id="boton-reiniciar">Reiniciar</button>
+
+    </section>
+
+    <section id="reglas">
+
+        <p>
+
+            <h1>REGLAS DEL COMBATE</h1>
+            <ul>
+                <li>Tijera corta el Papel</li>
+                <li>Papel cubre a la Piedra</li>
+                <li>Piedra aplasta al Lagarto</li>
+                <li>Lagarto envenena a Spock</li>
+                <li>Spock rompe a la Tijera</li>
+                <li>Tijera decapita al Lagarto</li>
+                <li>Lagarto devora al Papel</li>
+                <li>Papel desautoriza a Spock</li>
+                <li>Spock vaporiza a la Piedra</li>
+                <li>Y como siempre, Piedra rompe a la Tijera</li>
+            </ul>
+        </p>
+
+    </section>
+
+
+
+</body>
+</html>
