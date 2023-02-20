@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Labrada:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,43 +7,56 @@
     
 }
 body{
-    background-color: darksalmon;
+    background-color: #453C67;
+    background-image: url(./images.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    font-family: 'Labrada', serif;
 }
 
 .titulo{
     text-align: center;
-    color: bisque;
+    color: #F2F7A1;
     width: auto;
-    height: 40px;
-    background-color: teal;
+    height: 50px;
+    background-color: #6D67E4;
     
 }
 
-
-
-
-.diveleccion{
+#seleccionar-mascota {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-label{
-    border: solid 3px red;
-    border-radius: 15px;
-    color: red;
-    text-align: center;
-    font-family: sans-serif;
-    background-color: black;
-    width: 120px;
+input {
+    display: none;
+}
+
+
+.tarjetas{
+    display: flex;
+    gap: 50px;
+}
+
+.tarjeta-de-genio {
+    width: 100px;
     height: 120px;
+    color: #F2F7A1;
+    text-align: center;
+    background: #6D67E4;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 3px solid #F2F7A1;
+    border-radius: 20px;
 }
 
 #genio{
     margin-top: 30px;
     margin-bottom: 40px;
+    color: #F2F7A1;
 }
 
 input{
@@ -50,11 +65,18 @@ input{
 
 #boton-mascota{
     margin-top: 25px;
+    padding: 15px;
     width: 200px;
     font-family: sans-serif;
-    color: red;
-    font-style: italic;
-    background-color: black;
-    border: 3px solid red;
+    color: #F2F7A1;
+    font-family: 'Labrada', serif;
+    background-color: #6D67E4;
+    border: 3px solid #F2F7A1;
     border-radius: 15px;
+    font-family: 'Labrada', serif;
+}
+
+.tarjeta-de-genio:hover{
+    transform: scale(1.6);
+    pointer-events: painted;
 }

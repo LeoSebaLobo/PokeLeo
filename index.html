@@ -9,25 +9,38 @@
     <script src="./js/mokepon.js"></script>
 </head>
 <body>
-        <h1 class="titulo">Piedra, Papel, Tijera, Lagarto, Spock! 🔥💧🌱</h1>
+        <h1 class="titulo">Piedra, Papel, Tijera, Lagarto, Spock!</h1>
     <section id="seleccionar-mascota">
 
-        <div class="diveleccion">
+
 
     <h2 id="genio">ELIGE A TU GENIO:</h2>
         
-    <label for="sheldon">Sheldon</label>
+    <div class="tarjetas">
+    <label class="tarjeta-de-genio" for="sheldon">
+        <p>Sheldon</p>
+        <img src="./assets/img/SheldonPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Sheldon">
+    </label>
+
     <input type="radio" name="mascota" id="sheldon">
 
-    <label for="leonard">Leonard</label>
+    <label class="tarjeta-de-genio" for="leonard">
+        <p>Leonard</p>
+        <img src="./assets/img/LeonardPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Leonard">
+    </label>
+
     <input type="radio" name="mascota" id="leonard">
 
-    <label for="howard">Howard</label>
-    <input type="radio" name="mascota" id="howard">
+    <label class="tarjeta-de-genio" for="howard">
+        <p>Howard</p>
+        <img src="./assets/img/HowardPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Howard">
+    </label>
 
+    <input type="radio" name="mascota" id="howard">
+</div>
 <button id="boton-mascota">Seleccionar</button>
 
-</div>
+
 
 </section>
     <section id="seleccionar-ataque">
