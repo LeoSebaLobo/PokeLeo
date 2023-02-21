@@ -13,7 +13,12 @@ function iniciarJuego(){
     sectionReiniciar.style.display = "none"
     let sectionReglas = document.getElementById("reglas")
     sectionReglas.style.display = "none"
-    
+    let sectionParrafoPerdiste = document.getElementById("perdiste")
+    sectionParrafoPerdiste.style.display = "none"    
+    let sectionParrafoGanaste = document.getElementById("ganaste")
+    sectionParrafoGanaste.style.display = "none"
+
+
     let botonMascotaJugador = document.getElementById("boton-mascota")
     botonMascotaJugador.addEventListener("click", seleccionarMascota)
     let botonPiedra = document.getElementById("boton-piedra") 
@@ -37,10 +42,10 @@ function seleccionarMascota(){
     let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota")
     sectionSeleccionarMascota.style.display = "none"
 
-    
+
     
     let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque")
-    sectionSeleccionarAtaque.style.display = "block"
+    sectionSeleccionarAtaque.style.display = "flex"
     let sectionReglas = document.getElementById("reglas")
     sectionReglas.style.display = "block"
 
@@ -200,11 +205,15 @@ function resultadoAtaque(){
 
 function revisarVidas(){
     if(vidaJugador == 0){
-        mensajeFinal("LO SIENTO, PERDISTE, INTENTALO DE NUEVO")
+        mensajeFinal()
+        let sectionParrafoPerdiste = document.getElementById("perdiste")
+        sectionParrafoPerdiste.style.display = "block" 
         let sectionReglas = document.getElementById("reglas")
         sectionReglas.style.display = "none"
     } else if(vidaEnemigo == 0){
-        mensajeFinal("FELICITACIONES GANASTE!!!")
+        mensajeFinal()
+        let sectionParrafoGanaste = document.getElementById("ganaste")
+        sectionParrafoGanaste.style.display = "block" 
         let sectionReglas = document.getElementById("reglas")
         sectionReglas.style.display = "none"
     }
@@ -218,11 +227,8 @@ function crearMensaje(){
     sectionMensajes.appendChild(parrafo)
 }
 
-function mensajeFinal(resultadoFinal){
-    let sectionMensajes = document.getElementById("mensajes")
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = resultadoFinal
-    sectionMensajes.appendChild(parrafo)
+function mensajeFinal(){
+
     let botonPiedra = document.getElementById("boton-piedra") 
     let botonPapel = document.getElementById("boton-papel")
     let botonTijera = document.getElementById("boton-tijera")
@@ -234,10 +240,7 @@ function mensajeFinal(resultadoFinal){
     botonLagarto.disabled = true
     botonSpock.disabled = true
     let sectionReiniciar = document.getElementById("reiniciar")
-    sectionReiniciar.style.display = "block"
-    parrafo.innerHTML = resultadoFinal
-    sectionMensajes.appendChild(parrafo)
-    
+    sectionReiniciar.style.display = "block"    
 }
 
 function reiniciar(){

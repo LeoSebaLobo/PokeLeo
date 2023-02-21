@@ -7,6 +7,7 @@
     <title>Piedra, Papel, Tijera, Lagarto, Spock!</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="./js/mokepon.js"></script>
+    <script src="https://kit.fontawesome.com/08092b40c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
         <h1 class="titulo">Piedra, Papel, Tijera, Lagarto, Spock!</h1>
@@ -14,7 +15,7 @@
 
 
 
-    <h2 id="genio">ELIGE A TU GENIO:</h2>
+    <h2 class="genio">ELIGE A TU GENIO:</h2>
         
     <div class="tarjetas">
     <label class="tarjeta-de-genio" for="sheldon">
@@ -45,29 +46,26 @@
 </section>
     <section id="seleccionar-ataque">
         
-        <h2>Elige tu ataque:</h2>
+        <h2 class="genio">Elige tu ataque:</h2>
 
+        <div>
+            <button id="boton-piedra" class="boton-de-ataque">Piedra <i class="fa-solid fa-hand-back-fist"></i> </button>
+            <button id="boton-papel" class="boton-de-ataque">Papel <i class="fa-solid fa-hand"></i></button>
+            <button id="boton-tijera" class="boton-de-ataque">Tijera <i class="fa-solid fa-hand-scissors"></i></button>
+            <button id="boton-lagarto" class="boton-de-ataque">Lagarto <i class="fa-solid fa-hand-lizard"></i></button>
+            <button id="boton-spock" class="boton-de-ataque">Spock <i class="fa-solid fa-hand-spock"></i></button>
+        </div>
 
-
-        <p><span id="mascota-jugador"></span> tiene <span id="vidasJugadorHtml">5</span> vidas</p>
-        <p><span id="mascota-enemigo"></span> tiene <span id="vidasEnemigoHtml">5</span> vidas</p>
-
-
-        <p>
-            <button id="boton-piedra">Piedra </button>
-            <button id="boton-papel">Papel </button>
-            <button id="boton-tijera">Tijera </button>
-            <button id="boton-lagarto">Lagarto </button>
-            <button id="boton-spock">Spock </button>
-        </p>
+        <div>
+            <section id="mensajes">
 
     </section>
 
-    <section id="mensajes">
+    <section id="resultado">
 
-        <p>
-            
-        </p>
+        <p id="ganaste">Felicidades, ganaste la batalla!</p>
+
+        <p id="perdiste">Esta vez perdiste, intentalo nuevamente!</p>
 
     </section>
 
@@ -76,25 +74,30 @@
         <button id="boton-reiniciar">Reiniciar</button>
 
     </section>
+        </div>
+
+
+<div>
+        <p><span id="mascota-jugador"></span> tiene <span id="vidasJugadorHtml">5</span> vidas</p>
+        <p><span id="mascota-enemigo"></span> tiene <span id="vidasEnemigoHtml">5</span> vidas</p>
+
+    </div>
+
+
+    </section>
+
+
 
     <section id="reglas">
+        
+        <div class="center">
+        <h1 class="genio2">REGLAS DEL COMBATE</h1>
+    </div>
 
-        <p>
-
-            <h1>REGLAS DEL COMBATE</h1>
-            <ul>
-                <li>Tijera corta el Papel</li>
-                <li>Papel cubre a la Piedra</li>
-                <li>Piedra aplasta al Lagarto</li>
-                <li>Lagarto envenena a Spock</li>
-                <li>Spock rompe a la Tijera</li>
-                <li>Tijera decapita al Lagarto</li>
-                <li>Lagarto devora al Papel</li>
-                <li>Papel desautoriza a Spock</li>
-                <li>Spock vaporiza a la Piedra</li>
-                <li>Y como siempre, Piedra rompe a la Tijera</li>
-            </ul>
-        </p>
+        <div class="center" >
+            <img id="imgReglas" src="./assets/img/reglas.jpg" alt="">
+        </div>
+    
 
     </section>
 

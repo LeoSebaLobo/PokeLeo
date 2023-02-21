@@ -53,10 +53,31 @@ input {
     border-radius: 20px;
 }
 
-#genio{
+.genio{
     margin-top: 30px;
     margin-bottom: 40px;
     color: #F2F7A1;
+    font-size: 32px;
+    background-color: #6D67E4;
+    border-radius: 15px;
+    border: 5px solid black;
+    padding: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.genio2{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 400px;
+    color: #F2F7A1;
+    font-size: 32px;
+    background-color: #6D67E4;
+    border-radius: 15px;
+    border: 5px solid black;
+    padding: 10px;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
 input{
@@ -76,7 +97,56 @@ input{
     font-family: 'Labrada', serif;
 }
 
+#boton-mascota:hover{
+    background-color: crimson;
+    transform: scale(1.75);
+    border: 3px solid black;
+    cursor: pointer;
+}
+
 .tarjeta-de-genio:hover{
     transform: scale(1.6);
-    pointer-events: painted;
+    cursor: pointer;
 }
+
+#seleccionar-ataque{
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque{
+    background-color: #453C67;
+    border-radius: 15px;
+    border: 3px solid black;
+    padding: 10px;
+    color: #F2F7A1;
+    font-size: 24px;
+}
+
+.boton-de-ataque:hover{
+    transform: scale(1.50);
+    cursor: pointer;
+}
+
+p{
+    color: #F2F7A1;
+}
+
+#imgReglas{
+    width: 300px;
+    height: 300px;
+    border-radius: 100px;
+    border: 30px solid black;
+}
+
+#imgReglas:hover{
+    transform: scale(1.5);
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
