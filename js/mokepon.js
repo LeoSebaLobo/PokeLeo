@@ -1,256 +1,225 @@
-let ataqueJugador = 0
-let ataqueEnemigo = 0
-let resultadoDelAtaque = 0
-let vidaJugador = 5
-let vidaEnemigo = 5
+const sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
+const sectionReiniciar = document.getElementById("reiniciar");
+const sectionReglas = document.getElementById("reglas");
+const sectionParrafoPerdiste = document.getElementById("perdiste");
+const sectionParrafoGanaste = document.getElementById("ganaste");
+const botonMascotaJugador = document.getElementById("boton-mascota");
+const botonPiedra = document.getElementById("boton-piedra");
+const botonPapel = document.getElementById("boton-papel");
+const botonTijera = document.getElementById("boton-tijera");
+const botonLagarto = document.getElementById("boton-lagarto");
+const botonSpock = document.getElementById("boton-spock");
+const botonReiniciar = document.getElementById("boton-reiniciar");
+const sectionSeleccionarMascota = document.getElementById("seleccionar-mascota");
+const inputSheldon = document.getElementById("sheldon");
+const inputLeonard = document.getElementById("leonard");
+const inputHoward = document.getElementById("howard");
+const spanMascotaJugador = document.getElementById("mascota-jugador");
+const spanMascotaEnemigo = document.getElementById("mascota-enemigo");
+const spanVidaJugador = document.getElementById("vidasJugadorHtml");
+const spanVidaEnemigo = document.getElementById("vidasEnemigoHtml");
+const sectionMensajes = document.getElementById("resultado");
+const sectionDelJugador = document.getElementById("ataquesDelJugador");
+const sectionDelEnemigo = document.getElementById("ataquesDelEnemigo");
 
+let ataqueJugador = 0;
+let ataqueEnemigo = 0;
+let resultadoDelAtaque = 0;
+let vidaJugador = 5;
+let vidaEnemigo = 5;
 
-function iniciarJuego(){
+function iniciarJuego() {
+    sectionSeleccionarAtaque.style.display = "none";
 
-    let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque")
-    sectionSeleccionarAtaque.style.display = "none"
-    let sectionReiniciar = document.getElementById("reiniciar")
-    sectionReiniciar.style.display = "none"
-    let sectionReglas = document.getElementById("reglas")
-    sectionReglas.style.display = "none"
-    let sectionParrafoPerdiste = document.getElementById("perdiste")
-    sectionParrafoPerdiste.style.display = "none"    
-    let sectionParrafoGanaste = document.getElementById("ganaste")
-    sectionParrafoGanaste.style.display = "none"
+    sectionReiniciar.style.display = "none";
 
+    sectionReglas.style.display = "none";
 
-    let botonMascotaJugador = document.getElementById("boton-mascota")
-    botonMascotaJugador.addEventListener("click", seleccionarMascota)
-    let botonPiedra = document.getElementById("boton-piedra") 
-    let botonPapel = document.getElementById("boton-papel")
-    let botonTijera = document.getElementById("boton-tijera")
-    let botonLagarto = document.getElementById("boton-lagarto")
-    let botonSpock = document.getElementById("boton-spock")
-    let botonReiniciar = document.getElementById("boton-reiniciar")
+    sectionParrafoPerdiste.style.display = "none";
 
-    botonPiedra.addEventListener("click", seleccionarAtaquePiedra)
-    botonPapel.addEventListener("click", seleccionarAtaquePapel)
-    botonTijera.addEventListener("click", seleccionarAtaqueTijera)
-    botonLagarto.addEventListener("click", seleccionarAtaqueLagarto)
-    botonSpock.addEventListener("click", seleccionarAtaqueSpock)
-    botonReiniciar.addEventListener("click", reiniciar)
+    sectionParrafoGanaste.style.display = "none";
 
+    botonMascotaJugador.addEventListener("click", seleccionarMascota);
+
+    botonPiedra.addEventListener("click", seleccionarAtaquePiedra);
+    botonPapel.addEventListener("click", seleccionarAtaquePapel);
+    botonTijera.addEventListener("click", seleccionarAtaqueTijera);
+    botonLagarto.addEventListener("click", seleccionarAtaqueLagarto);
+    botonSpock.addEventListener("click", seleccionarAtaqueSpock);
+    botonReiniciar.addEventListener("click", reiniciar);
 }
 
+function seleccionarMascota() {
+    sectionSeleccionarMascota.style.display = "none";
 
-function seleccionarMascota(){
-    let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota")
-    sectionSeleccionarMascota.style.display = "none"
+    sectionSeleccionarAtaque.style.display = "flex";
 
+    sectionReglas.style.display = "block";
 
-    
-    let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque")
-    sectionSeleccionarAtaque.style.display = "flex"
-    let sectionReglas = document.getElementById("reglas")
-    sectionReglas.style.display = "block"
-
-    
-    let inputSheldon = document.getElementById("sheldon")
-    let inputLeonard = document.getElementById("leonard")
-    let inputHoward = document.getElementById("howard")
-    let spanMascotaJugador = document.getElementById("mascota-jugador")
-
-    if(inputSheldon.checked){
-        spanMascotaJugador.innerHTML = "Sheldon"
-        
-    } else if(inputLeonard.checked){
-        spanMascotaJugador.innerHTML = "Leonard"
-        
-    } else if (inputHoward.checked){
-        spanMascotaJugador.innerHTML = "Howard"
-
-    }else { 
-        alert("Debes seleccionar una mascota para pelear")}
-
-        
-        seleccionarMascotaEnemigo()
-}
-
-function seleccionarMascotaEnemigo(){
-    
-    let mascotaAleatoria = aleatorio(1, 3)
-    let spanMascotaEnemigo = document.getElementById("mascota-enemigo")
-
-    if(mascotaAleatoria == 1){
-        spanMascotaEnemigo.innerHTML = "Sheldon"
-    }
-    else if(mascotaAleatoria == 2){
-        spanMascotaEnemigo.innerHTML = "Leonard"
-    }
-    else if (mascotaAleatoria == 3){
-        spanMascotaEnemigo.innerHTML = "Howard"
+    if (inputSheldon.checked) {
+        spanMascotaJugador.innerHTML = "Sheldon";
+    } else if (inputLeonard.checked) {
+        spanMascotaJugador.innerHTML = "Leonard";
+    } else if (inputHoward.checked) {
+        spanMascotaJugador.innerHTML = "Howard";
+    } else {
+        alert("Debes seleccionar una mascota para pelear");
     }
 
+    seleccionarMascotaEnemigo();
 }
 
-function ataqueAleatorioEnemigo(){
-    let ataqueAleatorio = aleatorio(1, 5)
+function seleccionarMascotaEnemigo() {
+    let mascotaAleatoria = aleatorio(1, 3);
 
-    if(ataqueAleatorio == 1){
-        ataqueEnemigo = "Piedra"        
-    } else if (ataqueAleatorio == 2){
-        ataqueEnemigo = "Papel"        
-    }else if (ataqueAleatorio == 3){
-        ataqueEnemigo = "Tijera"
-    } else if (ataqueAleatorio == 4){
-        ataqueEnemigo = "Lagarto"
-    } else if (ataqueAleatorio == 5){
-        ataqueEnemigo = "Spock"
-    }
-    
-    resultadoAtaque()
-    crearMensaje()
-    
-    
-}
-
-function seleccionarAtaquePiedra(){
-    ataqueJugador = "Piedra"
-    ataqueAleatorioEnemigo()
-    
-}
-function seleccionarAtaquePapel(){
-    ataqueJugador = "Papel"
-    ataqueAleatorioEnemigo()
-    
-}
-
-function seleccionarAtaqueTijera(){
-    ataqueJugador = "Tijera"
-    ataqueAleatorioEnemigo()
-    
-}
-
-function seleccionarAtaqueLagarto(){
-    ataqueJugador = "Lagarto"
-    ataqueAleatorioEnemigo()
-    
-}
-
-function seleccionarAtaqueSpock(){
-    ataqueJugador = "Spock"
-    ataqueAleatorioEnemigo()
-    
-}
-
-function resultadoAtaque(){
-    let spanVidaJugador = document.getElementById("vidasJugadorHtml")
-    let spanVidaEnemigo = document.getElementById("vidasEnemigoHtml")
-
-    if(ataqueJugador == ataqueEnemigo){
-        resultadoDelAtaque = "EMPATE"
-
-    } else if (ataqueJugador == "Tijera" && ataqueEnemigo == "Papel"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML = vidaEnemigo
-
-    } else if (ataqueJugador == "Papel" && ataqueEnemigo == "Piedra"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML = vidaEnemigo
-
-    } else if (ataqueJugador == "Piedra" && ataqueEnemigo == "Lagarto"){
-        resultadoDelAtaque ="GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML = vidaEnemigo
-
-    } else if (ataqueJugador == "Lagarto" && ataqueEnemigo == "Spock"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML = vidaEnemigo
-    } else if (ataqueJugador == "Spock" && ataqueEnemigo == "Tijera"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML= vidaEnemigo
-    } else if (ataqueJugador == "Tijera" && ataqueEnemigo == "Lagarto"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML= vidaEnemigo
-    } else if (ataqueJugador == "Lagarto" && ataqueEnemigo == "Papel"){
-    resultadoDelAtaque = "GANASTE"
-    vidaEnemigo--
-    spanVidaEnemigo.innerHTML= vidaEnemigo
-    } else if (ataqueJugador == "Papel" && ataqueEnemigo == "Spock"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML= vidaEnemigo
-    } else if (ataqueJugador == "Spock" && ataqueEnemigo == "Piedra"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML= vidaEnemigo
-    } else if (ataqueJugador == "Piedra" && ataqueEnemigo == "Tijera"){
-        resultadoDelAtaque = "GANASTE"
-        vidaEnemigo--
-        spanVidaEnemigo.innerHTML= vidaEnemigo
-    }
-    
-    else {
-        resultadoDelAtaque = "PERDISTE"
-        vidaJugador--
-        spanVidaJugador.innerHTML = vidaJugador
-}
-
-    revisarVidas()
-
-
-}
-
-
-
-function revisarVidas(){
-    if(vidaJugador == 0){
-        mensajeFinal()
-        let sectionParrafoPerdiste = document.getElementById("perdiste")
-        sectionParrafoPerdiste.style.display = "block" 
-        let sectionReglas = document.getElementById("reglas")
-        sectionReglas.style.display = "none"
-    } else if(vidaEnemigo == 0){
-        mensajeFinal()
-        let sectionParrafoGanaste = document.getElementById("ganaste")
-        sectionParrafoGanaste.style.display = "block" 
-        let sectionReglas = document.getElementById("reglas")
-        sectionReglas.style.display = "none"
+    if (mascotaAleatoria == 1) {
+        spanMascotaEnemigo.innerHTML = "Sheldon";
+    } else if (mascotaAleatoria == 2) {
+        spanMascotaEnemigo.innerHTML = "Leonard";
+    } else if (mascotaAleatoria == 3) {
+        spanMascotaEnemigo.innerHTML = "Howard";
     }
 }
 
-function crearMensaje(){
+function ataqueAleatorioEnemigo() {
+    let ataqueAleatorio = aleatorio(1, 5);
 
-    let sectionMensajes = document.getElementById("mensajes")
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = "Tu genio ataco con " + ataqueJugador + " .El genio del enemigo ataco con " + ataqueEnemigo + ". " + resultadoDelAtaque + "."
-    sectionMensajes.appendChild(parrafo)
+    if (ataqueAleatorio == 1) {
+        ataqueEnemigo = "Piedra";
+    } else if (ataqueAleatorio == 2) {
+        ataqueEnemigo = "Papel";
+    } else if (ataqueAleatorio == 3) {
+        ataqueEnemigo = "Tijera";
+    } else if (ataqueAleatorio == 4) {
+        ataqueEnemigo = "Lagarto";
+    } else if (ataqueAleatorio == 5) {
+        ataqueEnemigo = "Spock";
+    }
+
+    resultadoAtaque();
+    crearMensaje();
 }
 
-function mensajeFinal(){
-
-    let botonPiedra = document.getElementById("boton-piedra") 
-    let botonPapel = document.getElementById("boton-papel")
-    let botonTijera = document.getElementById("boton-tijera")
-    let botonLagarto = document.getElementById("boton-lagarto")
-    let botonSpock = document.getElementById("boton-spock")
-    botonPiedra.disabled = true
-    botonPapel.disabled = true
-    botonTijera.disabled = true
-    botonLagarto.disabled = true
-    botonSpock.disabled = true
-    let sectionReiniciar = document.getElementById("reiniciar")
-    sectionReiniciar.style.display = "block"    
+function seleccionarAtaquePiedra() {
+    ataqueJugador = "Piedra";
+    ataqueAleatorioEnemigo();
+}
+function seleccionarAtaquePapel() {
+    ataqueJugador = "Papel";
+    ataqueAleatorioEnemigo();
 }
 
-function reiniciar(){
-    location.reload()
+function seleccionarAtaqueTijera() {
+    ataqueJugador = "Tijera";
+    ataqueAleatorioEnemigo();
 }
 
+function seleccionarAtaqueLagarto() {
+    ataqueJugador = "Lagarto";
+    ataqueAleatorioEnemigo();
+}
 
+function seleccionarAtaqueSpock() {
+    ataqueJugador = "Spock";
+    ataqueAleatorioEnemigo();
+}
+
+function resultadoAtaque() {
+    if (ataqueJugador == ataqueEnemigo) {
+        resultadoDelAtaque = "EMPATE";
+    } else if (ataqueJugador == "Tijera" && ataqueEnemigo == "Papel") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Papel" && ataqueEnemigo == "Piedra") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Piedra" && ataqueEnemigo == "Lagarto") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Lagarto" && ataqueEnemigo == "Spock") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Spock" && ataqueEnemigo == "Tijera") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Tijera" && ataqueEnemigo == "Lagarto") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Lagarto" && ataqueEnemigo == "Papel") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Papel" && ataqueEnemigo == "Spock") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Spock" && ataqueEnemigo == "Piedra") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else if (ataqueJugador == "Piedra" && ataqueEnemigo == "Tijera") {
+        resultadoDelAtaque = "GANASTE";
+        vidaEnemigo--;
+        spanVidaEnemigo.innerHTML = vidaEnemigo;
+    } else {
+        resultadoDelAtaque = "PERDISTE";
+        vidaJugador--;
+        spanVidaJugador.innerHTML = vidaJugador;
+    }
+
+    revisarVidas();
+}
+
+function revisarVidas() {
+    if (vidaJugador == 0) {
+        mensajeFinal();
+
+        sectionParrafoPerdiste.style.display = "block";
+
+        sectionReglas.style.display = "none";
+    } else if (vidaEnemigo == 0) {
+        mensajeFinal();
+
+        sectionParrafoGanaste.style.display = "block";
+
+        sectionReglas.style.display = "none";
+    }
+}
+
+function crearMensaje() {
+    let nuevoAtaqueDelJugador = document.createElement("p");
+    let nuevoAtaqueDelEnemigo = document.createElement("p");
+
+    sectionMensajes.innerHTML = resultadoDelAtaque;
+    nuevoAtaqueDelJugador.innerHTML = ataqueJugador;
+    nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo;
+
+    sectionDelJugador.appendChild(nuevoAtaqueDelJugador);
+    sectionDelEnemigo.appendChild(nuevoAtaqueDelEnemigo);
+}
+
+function mensajeFinal() {
+    botonPiedra.disabled = true;
+    botonPapel.disabled = true;
+    botonTijera.disabled = true;
+    botonLagarto.disabled = true;
+    botonSpock.disabled = true;
+
+    sectionReiniciar.style.display = "block";
+}
+
+function reiniciar() {
+    location.reload();
+}
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-window.addEventListener("load", iniciarJuego)
+window.addEventListener("load", iniciarJuego);

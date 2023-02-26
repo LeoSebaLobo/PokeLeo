@@ -1,87 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedra, Papel, Tijera, Lagarto, Spock!</title>
     <link rel="stylesheet" href="./styles/styles.css">
-    <script src="./js/mokepon.js"></script>
-    <script src="https://kit.fontawesome.com/08092b40c7.js" crossorigin="anonymous"></script>
+
 </head>
+
 <body>
-        <h1 class="titulo">Piedra, Papel, Tijera, Lagarto, Spock!</h1>
+    <h1 class="titulo">Piedra, Papel, Tijera, Lagarto, Spock!</h1>
     <section id="seleccionar-mascota">
 
 
 
-    <h2 class="genio">ELIGE A TU GENIO:</h2>
-        
-    <div class="tarjetas">
-    <label class="tarjeta-de-genio" for="sheldon">
-        <p>Sheldon</p>
-        <img src="./assets/img/SheldonPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Sheldon">
-    </label>
+        <h2 class="genio">ELIGE A TU GENIO:</h2>
 
-    <input type="radio" name="mascota" id="sheldon">
+        <div class="tarjetas">
+            <input type="radio" name="mascota" id="sheldon">
+            <label class="tarjeta-de-genio" for="sheldon">
+                <p>Sheldon</p>
+                <img src="./assets/img/SheldonPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Sheldon">
+            </label>
 
-    <label class="tarjeta-de-genio" for="leonard">
-        <p>Leonard</p>
-        <img src="./assets/img/LeonardPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Leonard">
-    </label>
+            
+            <input type="radio" name="mascota" id="leonard">
+            <label class="tarjeta-de-genio" for="leonard">
+                <p>Leonard</p>
+                <img src="./assets/img/LeonardPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Leonard">
+            </label>
 
-    <input type="radio" name="mascota" id="leonard">
+            
+            <input type="radio" name="mascota" id="howard">
+            <label class="tarjeta-de-genio" for="howard">
+                <p>Howard</p>
+                <img src="./assets/img/HowardPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Howard">
+            </label>
 
-    <label class="tarjeta-de-genio" for="howard">
-        <p>Howard</p>
-        <img src="./assets/img/HowardPixelSinFondo.png" width="75px" height="75px" alt="Imagen de Howard">
-    </label>
-
-    <input type="radio" name="mascota" id="howard">
-</div>
-<button id="boton-mascota">Seleccionar</button>
+            
+        </div>
+        <button id="boton-mascota">Seleccionar</button>
 
 
 
-</section>
+    </section>
     <section id="seleccionar-ataque">
-        
+
         <h2 class="genio">Elige tu ataque:</h2>
 
-        <div>
-            <button id="boton-piedra" class="boton-de-ataque">Piedra <i class="fa-solid fa-hand-back-fist"></i> </button>
+        <div class="movil">
+            <button id="boton-piedra" class="boton-de-ataque">Piedra <i class="fa-solid fa-hand-back-fist"></i>
+            </button>
             <button id="boton-papel" class="boton-de-ataque">Papel <i class="fa-solid fa-hand"></i></button>
             <button id="boton-tijera" class="boton-de-ataque">Tijera <i class="fa-solid fa-hand-scissors"></i></button>
             <button id="boton-lagarto" class="boton-de-ataque">Lagarto <i class="fa-solid fa-hand-lizard"></i></button>
-            <button id="boton-spock" class="boton-de-ataque">Spock <i class="fa-solid fa-hand-spock"></i></button>
+            <button id="boton-spock" class="boton-de-ataque" >Spock <i class="fa-solid fa-hand-spock"></i></button>
         </div>
 
         <div>
-            <section id="mensajes">
+            <div id="mensajes">
+                <p id="resultado">MUCHA SUERTE!!!</p>
 
-    </section>
+                <section id="reiniciar">
 
-    <section id="resultado">
+                    <button id="boton-reiniciar">Reiniciar</button>
 
-        <p id="ganaste">Felicidades, ganaste la batalla!</p>
+                </section>
 
-        <p id="perdiste">Esta vez perdiste, intentalo nuevamente!</p>
 
-    </section>
+            </div>
 
-    <section id="reiniciar">
 
-        <button id="boton-reiniciar">Reiniciar</button>
 
-    </section>
+
+
+
+
+
+            <section id="resultadoMensaje   ">
+
+                <div class="centrarMensajes">
+
+                <p id="ganaste">Felicidades, ganaste la batalla!</p>
+
+                <p id="perdiste">INTENTALO NUEVAMENTE!!!</p>
+            </div>
+
+            </section>
+
+
         </div>
 
+        <div class="cartas">
+            <div class="ataquesEnemigo">
+                <p id="vidasJugadorHtml">5</p>
+                <p id="mascota-jugador"></p>
+                <div id="ataquesDelJugador"></div>
 
-<div>
-        <p><span id="mascota-jugador"></span> tiene <span id="vidasJugadorHtml">5</span> vidas</p>
-        <p><span id="mascota-enemigo"></span> tiene <span id="vidasEnemigoHtml">5</span> vidas</p>
 
-    </div>
+            </div>
+
+            <div class="ataquesJugador">
+                <p id="vidasEnemigoHtml">5</p>
+                <p id="mascota-enemigo"></p>
+                <div id="ataquesDelEnemigo"></div>
+
+            </div>
+
+        </div>
+
+        <div>
+
+
+
+        </div>
 
 
     </section>
@@ -89,19 +123,21 @@
 
 
     <section id="reglas">
-        
-        <div class="center">
-        <h1 class="genio2">REGLAS DEL COMBATE</h1>
-    </div>
 
-        <div class="center" >
+        <div class="center">
+            <h1 class="genio2">REGLAS DEL COMBATE</h1>
+        </div>
+
+        <div class="center">
             <img id="imgReglas" src="./assets/img/reglas.jpg" alt="">
         </div>
-    
+
 
     </section>
 
 
-
+    <script src="./js/mokepon.js"></script>
+    <script src="https://kit.fontawesome.com/08092b40c7.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

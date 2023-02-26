@@ -33,8 +33,12 @@ body{
 
 input {
     display: none;
+    margin: 10px;
 }
 
+input:checked + label{
+    background-color: black;
+}
 
 .tarjetas{
     display: flex;
@@ -78,10 +82,6 @@ input {
     padding: 10px;
     padding-bottom: 15px;
     text-align: center;
-}
-
-input{
-    margin: 10px;
 }
 
 #boton-mascota{
@@ -149,4 +149,74 @@ p{
     justify-content: center;
     align-items: center;
 }
+
+#mensajes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    background: black;
+    padding: 20px;
+    margin-top: 20px;
+    border: 10px solid #F2F7A1;
+    border-radius: 20px;
+    font-size: 24px;
+}
+
+#resultadoMensaje{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #6D67E4;
+    border: 5px solid black;
+    border-radius: 15px;
+}
+
+#boton-reiniciar{
+    
+    border: none;
+    color: beige;
+    background-color: black;
+    font-family: 'Labrada', serif;
+}
+
+.cartas{
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
+
+@media(max-width: 420px){
+    .tarjetas{
+        flex-direction: column;
+    }
+    .tarjeta-de-genio{
+        width: 250px;
+    }
+    .genio{
+        font-size: 16px;
+    }
+    .titulo{
+        font-size: 20px;
+        height: 35px;
+    }
+    .movil{
+        display: flex;
+        flex-direction: column;
+    }
+    .boton-de-ataque{
+        margin: 10px;
+    }
+    #imgReglas:hover{
+        transform: scale(1.2);
+    }
+}
+
+.ataquesJugador, .ataquesEnemigo, .centrarMensajes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
