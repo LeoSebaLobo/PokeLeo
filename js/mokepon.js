@@ -5,7 +5,10 @@ const sectionParrafoPerdiste = document.getElementById("perdiste");
 const sectionParrafoGanaste = document.getElementById("ganaste");
 const botonMascotaJugador = document.getElementById("boton-mascota");
 const botonReiniciar = document.getElementById("boton-reiniciar");
-const sectionSeleccionarMascota = document.getElementById("seleccionar-mascota");
+const mensajeDelFinal = document.getElementById("resultadoMensaje")
+const sectionSeleccionarMascota = document.getElementById(
+    "seleccionar-mascota"
+);
 const spanMascotaJugador = document.getElementById("mascota-jugador");
 const spanMascotaEnemigo = document.getElementById("mascota-enemigo");
 const spanVidaJugador = document.getElementById("vidasJugadorHtml");
@@ -13,87 +16,84 @@ const spanVidaEnemigo = document.getElementById("vidasEnemigoHtml");
 const sectionMensajes = document.getElementById("resultado");
 const sectionDelJugador = document.getElementById("ataquesDelJugador");
 const sectionDelEnemigo = document.getElementById("ataquesDelEnemigo");
-const contenedorTarjetas = document.getElementById("contenedorTarjetas")
-const contenedorAtaques = document.getElementById("contenedorAtaques")
+const contenedorTarjetas = document.getElementById("contenedorTarjetas");
+const contenedorAtaques = document.getElementById("contenedorAtaques");
 
-let genios = []
+let genios = [];
 let ataqueJugador = 0;
 let ataqueEnemigo = 0;
 let resultadoDelAtaque = 0;
 let vidaJugador = 5;
 let vidaEnemigo = 5;
-let opcionDeGenios
-let inputSheldon
-let inputLeonard 
-let inputHoward 
-let mascotaJugador
-let ataquesGenio
-let botonPiedra
-let botonPapel 
-let botonTijera 
-let botonLagarto 
-let botonSpock 
+let opcionDeGenios;
+let inputSheldon;
+let inputLeonard;
+let inputHoward;
+let mascotaJugador;
+let ataquesGenio;
+let botonPiedra;
+let botonPapel;
+let botonTijera;
+let botonLagarto;
+let botonSpock;
+let botones = [];
 
 class Genio {
-    constructor(nombre, foto, vida,) {
-        this.nombre = nombre
-        this.foto = foto
-        this.vida = vida
-        this.ataques = []
+    constructor(nombre, foto, vida) {
+        this.nombre = nombre;
+        this.foto = foto;
+        this.vida = vida;
+        this.ataques = [];
     }
 }
 
-let sheldon = new Genio("Sheldon", "assets/img/LeonardPixelSinFondo.png",  5) 
-let howard = new Genio ("Howard","assets/img/HowardPixelSinFondo.png", 5)
-let leonard = new Genio ("Leonard","assets/img/LeonardPixelSinFondo.png", 5)
+let sheldon = new Genio("Sheldon", "assets/img/SheldonPixelSinFondo.png", 5);
+let howard = new Genio("Howard", "assets/img/HowardPixelSinFondo.png", 5);
+let leonard = new Genio("Leonard", "assets/img/LeonardPixelSinFondo.png", 5);
 
 sheldon.ataques.push(
-    {nombre: 'Piedra', id: 'boton-piedra'},
-    {nombre: 'Papel', id: 'boton-papel'},
-    {nombre: 'Tijera', id: 'boton-tijera'},
-    {nombre: 'Lagarto', id: 'boton-lagarto'},
-    {nombre: 'Spock', id: 'boton-spock'}    
-)
+    { nombre: "Piedra", id: "boton-piedra", logo: `fa-solid fa-hand-back-fist` },
+    { nombre: "Papel", id: "boton-papel", logo: `fa-solid fa-hand`  },
+    { nombre: "Tijera", id: "boton-tijera", logo: "fa-solid fa-hand-scissors"  },
+    { nombre: "Lagarto", id: "boton-lagarto", logo: `fa-solid fa-hand-lizard`  },
+    { nombre: "Spock", id: "boton-spock", logo: `fa-solid fa-hand-spock`  }
+);
 
 howard.ataques.push(
-    {nombre: 'Piedra', id: 'boton-piedra'},
-    {nombre: 'Papel', id: 'boton-papel'},
-    {nombre: 'Tijera', id: 'boton-tijera'},
-    {nombre: 'Lagarto', id: 'boton-lagarto'},
-    {nombre: 'Spock', id: 'boton-spock'}    
-)
+    { nombre: "Piedra", id: "boton-piedra", logo: `fa-solid fa-hand-back-fist` },
+    { nombre: "Papel", id: "boton-papel", logo: `fa-solid fa-hand` },
+    { nombre: "Tijera", id: "boton-tijera", logo: "fa-solid fa-hand-scissors" },
+    { nombre: "Lagarto", id: "boton-lagarto", logo: `fa-solid fa-hand-lizard` },
+    { nombre: "Spock", id: "boton-spock", logo: `fa-solid fa-hand-spock` }
+);
 
-leonard .ataques.push(
-    {nombre: 'Piedra', id: 'boton-piedra', logo: `fa-solid fa-hand-back-fist` },
-    {nombre: 'Papel', id: 'boton-papel', logo: `fa-solid fa-hand`},
-    {nombre: 'Tijera', id: 'boton-tijera', logo: "fa-solid fa-hand-scissors"},
-    {nombre: 'Lagarto', id: 'boton-lagarto', logo: `fa-solid fa-hand-lizard`},
-    {nombre: 'Spock', id: 'boton-spock', logo: `fa-solid fa-hand-spock`}    
-)
+leonard.ataques.push(
+    { nombre: "Piedra", id: "boton-piedra", logo: `fa-solid fa-hand-back-fist` },
+    { nombre: "Papel", id: "boton-papel", logo: `fa-solid fa-hand` },
+    { nombre: "Tijera", id: "boton-tijera", logo: "fa-solid fa-hand-scissors" },
+    { nombre: "Lagarto", id: "boton-lagarto", logo: `fa-solid fa-hand-lizard` },
+    { nombre: "Spock", id: "boton-spock", logo: `fa-solid fa-hand-spock` }
+);
 
-genios.push(sheldon, howard, leonard)
-
-
-
+genios.push(sheldon, howard, leonard);
 
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = "none";
 
-    
-    genios.forEach((genio) =>{
+    genios.forEach((genio) => {
         opcionDeGenios = `
         <input type="radio" name="mascota" id="${genio.nombre}">
         <label class="tarjeta-de-genio" for="${genio.nombre}">
             <p>${genio.nombre}</p>
             <img src= ${genio.foto} width="75px" height="75px" alt="Imagen de ${genio.nombre}">
         </label>
-        `
-        contenedorTarjetas.innerHTML += opcionDeGenios
+        `;
+        contenedorTarjetas.innerHTML += opcionDeGenios;
 
         inputSheldon = document.getElementById("Sheldon");
         inputLeonard = document.getElementById("Leonard");
         inputHoward = document.getElementById("Howard");
-    })
+    });
     sectionReiniciar.style.display = "none";
 
     sectionReglas.style.display = "none";
@@ -104,56 +104,56 @@ function iniciarJuego() {
 
     botonMascotaJugador.addEventListener("click", seleccionarMascota);
 
-
     botonReiniciar.addEventListener("click", reiniciar);
 }
 
 function seleccionarMascota() {
     sectionSeleccionarMascota.style.display = "none";
-
     sectionSeleccionarAtaque.style.display = "flex";
-
     sectionReglas.style.display = "block";
 
     if (inputSheldon.checked) {
         spanMascotaJugador.innerHTML = inputSheldon.id;
-        mascotaJugador = inputSheldon.id
+        mascotaJugador = inputSheldon.id;
     } else if (inputLeonard.checked) {
         spanMascotaJugador.innerHTML = inputLeonard.id;
-        mascotaJugador = inputLeonard.id
+        mascotaJugador = inputLeonard.id;
     } else if (inputHoward.checked) {
         spanMascotaJugador.innerHTML = inputHoward.id;
-        mascotaJugador = inputHoward.id
+        mascotaJugador = inputHoward.id;
     } else {
         alert("Debes seleccionar una mascota para pelear");
+        sectionSeleccionarMascota.style.display = "flex";
+        sectionSeleccionarAtaque.style.display = "none";
+        sectionReglas.style.display = "none";
     }
 
-    extraerAtaques(mascotaJugador)
+    extraerAtaques(mascotaJugador);
     seleccionarMascotaEnemigo();
 }
 
-function extraerAtaques(mascotaJugador){
-    let ataques
+function extraerAtaques(mascotaJugador) {
+    let ataques;
     for (let i = 0; i < genios.length; i++) {
         if (mascotaJugador === genios[i].nombre) {
-            ataques = genios[i].ataques
+            ataques = genios[i].ataques;
         }
-        
     }
-    mostrarAtaques(ataques)
+    mostrarAtaques(ataques);
 }
 
-function mostrarAtaques(ataques){
+function mostrarAtaques(ataques) {
     ataques.forEach((ataque) => {
-        ataquesGenio = `<button id=${ataque.id} class="boton-de-ataque">${ataque.nombre}  <i class="${ataque.logo}"></i>
-        </button>`
-        contenedorAtaques.innerHTML +=ataquesGenio
-    })
+        ataquesGenio = `<button id=${ataque.id} class="boton-de-ataque BAtaque">${ataque.nombre}  <i class="${ataque.logo}"></i>
+        </button>`;
+        contenedorAtaques.innerHTML += ataquesGenio;
+    });
     botonPiedra = document.getElementById("boton-piedra");
     botonPapel = document.getElementById("boton-papel");
     botonTijera = document.getElementById("boton-tijera");
     botonLagarto = document.getElementById("boton-lagarto");
     botonSpock = document.getElementById("boton-spock");
+    botones = document.querySelectorAll(".BAtaque");
 
     botonPiedra.addEventListener("click", seleccionarAtaquePiedra);
     botonPapel.addEventListener("click", seleccionarAtaquePapel);
@@ -165,7 +165,7 @@ function mostrarAtaques(ataques){
 function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(0, genios.length - 1);
 
-    spanMascotaEnemigo.innerHTML = genios[mascotaAleatoria].nombre
+    spanMascotaEnemigo.innerHTML = genios[mascotaAleatoria].nombre;
 }
 
 function ataqueAleatorioEnemigo() {

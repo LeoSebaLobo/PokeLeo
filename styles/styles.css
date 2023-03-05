@@ -178,13 +178,22 @@ p{
     
     border: none;
     color: beige;
-    background-color: black;
+    background-color: #6D67E4;
+    border: brown 2px solid;
+    border-radius: 25px;
+    width: 100px;
     font-family: 'Labrada', serif;
+}
+
+#boton-reiniciar:hover{
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .cartas{
     display: grid;
     grid-template-columns: 100px 100px;
+    gap: 100px;
 }
 
 @media(max-width: 420px){
@@ -213,10 +222,32 @@ p{
     }
 }
 
-.ataquesJugador, .ataquesEnemigo, .centrarMensajes{
+.ataquesJugador, .ataquesEnemigo{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: auto;
+    border-radius: 25px;
+    border: #F2F7A1 3px solid;
+    padding: 5px;
+    background-color: black;
+    padding-left: 50px;
+    padding-right: 50px;
+    ;
 }
 
+.centrarMensajes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #6D67E4;
+    border-radius: 25px;
+    border: brown 3px solid;
+    
+    }
 
