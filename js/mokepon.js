@@ -47,9 +47,9 @@ class Genio {
     }
 }
 
-let sheldon = new Genio("Sheldon", "assets/img/SheldonPixelSinFondo.png", 5);
-let howard = new Genio("Howard", "assets/img/HowardPixelSinFondo.png", 5);
-let leonard = new Genio("Leonard", "assets/img/LeonardPixelSinFondo.png", 5);
+let sheldon = new Genio("Sheldon", "assets/img/SheldonPixelSinFondo.png", 3);
+let howard = new Genio("Howard", "assets/img/HowardPixelSinFondo.png", 3);
+let leonard = new Genio("Leonard", "assets/img/LeonardPixelSinFondo.png", 3);
 
 sheldon.ataques.push(
     { nombre: "Piedra", id: "boton-piedra", logo: `fa-solid fa-hand-back-fist` },
