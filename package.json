@@ -1,0 +1,22 @@
+{
+  "name": "juego-big-bang-theory",
+  "version": "1.0.0",
+  "description": "Juego Piedra , Papel, Tijera, Lagarto, Spock",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoSebaLobo/PokeLeo.git"
+  },
+  "author": "Leandro Lobo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoSebaLobo/PokeLeo/issues"
+  },
+  "homepage": "https://github.com/LeoSebaLobo/PokeLeo#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
